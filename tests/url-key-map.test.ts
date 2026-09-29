@@ -35,6 +35,7 @@ describe("URL_KEY_MAP", () => {
       "https://api.perplexity.ai": "PERPLEXITY_API_KEY",
       "https://api.atlascloud.ai/v1": "ATLASCLOUD_API_KEY",
       "https://api.novita.ai/openai/v1": "NOVITA_API_KEY",
+      "https://api.cheaperinference.com/v1": "CHEAPERINFERENCE_API_KEY",
     };
     for (const [url, envKey] of Object.entries(expected)) {
       expect(expectedEnvKeyForUrl(url)).toBe(envKey);
@@ -48,6 +49,19 @@ describe("URL_KEY_MAP", () => {
     expect(expectedEnvKeyForUrl("HTTPS://API.OPENAI.COM/V1")).toBe(
       "OPENAI_API_KEY",
     );
+  });
+
+  it("does not map lookalike Cheaper Inference hosts to its key", () => {
+    for (const url of [
+      "https://api.cheaperinference.com.attacker.example/v1",
+      "https://evil.example/api.cheaperinference.com/v1",
+      "https://xapi.cheaperinference.com/v1",
+    ]) {
+      expect(expectedEnvKeyForUrl(url)).toBe(CUSTOM_API_KEY_ENV);
+    }
+    expect(
+      expectedEnvKeyForUrl("https://API.CheaperInference.com:443/v1"),
+    ).toBe("CHEAPERINFERENCE_API_KEY");
   });
 
   it("falls back to CUSTOM_API_KEY for unknown hosts", () => {

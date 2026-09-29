@@ -219,6 +219,12 @@ Novita is available as a remote OpenAI-compatible preset, with a dedicated API-k
 
 The desktop stores the model as `custom` at `https://api.novita.ai/openai/v1`. Setup, the configured-provider picker, installer readiness, and runtime key lookup use `NOVITA_API_KEY`; provider branding identifies the endpoint as NovitaAI. The shared URL mapping is covered alongside the other supported commercial endpoints.
 
+## Cheaper Inference provider preset
+
+Cheaper Inference is available as a remote OpenAI-compatible preset, with a dedicated API-key field. Each model costs 15–60% less than the list price of its lab.
+
+The desktop stores the model as `custom` at `https://api.cheaperinference.com/v1`. Setup, the provider picker, installer readiness and key lookup use `CHEAPERINFERENCE_API_KEY`. Hermes Agent derives the same name from the endpoint host. The shared URL mapping is covered alongside the other supported commercial endpoints.
+
 ## Auxiliary credential ownership
 
 Auxiliary credentials belong to the selected provider and endpoint. Switching either clears stale task-level secrets and pointers; model-only changes preserve them.

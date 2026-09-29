@@ -42,6 +42,7 @@ export default {
   cerebras: "Cerebras",
   atlascloud: "AtlasCloud",
   novita: "NovitaAI",
+  cheaperinference: "Cheaper Inference",
   mistral: "Mistral",
   // Theme
   themeSystem: "System",
@@ -103,6 +104,9 @@ export default {
   atlascloudHint: "Claude, GPT & open models via AtlasCloud",
   novitaApiKey: "Novita API Key",
   novitaHint: "Models hosted by Novita",
+  cheaperinferenceApiKey: "Cheaper Inference API Key",
+  cheaperinferenceHint:
+    "GPT, Claude, Gemini & open models via Cheaper Inference. Each model costs 15–60% less than the list price of its lab.",
   mistralApiKey: "Mistral API Key",
   mistralHint: "Mistral and Codestral models",
   perplexityApiKey: "Perplexity API Key",
